@@ -1,0 +1,19 @@
+th {
+  font-size: 18px; 
+}
+
+td {
+  font-size: 16px; 
+}
+
+.lightsteelblue {
+  background-color: LightSteelBlue; 
+}
+
+.glyphicon-triangle-bottom {
+  cursor: pointer;  
+}
+
+.glyphicon-triangle-bottom:hover {
+  background-color: LightSteelBlue; 
+}
