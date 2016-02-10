@@ -10,11 +10,11 @@
     </tr>
   </thead>
   <tbody>
-    <tr ng-repeat="(key, stock) in stocks track by $index" ng-class='{lightsteelblue: $even}'>
+    <tr ng-repeat="(key, stock) in stocks" ng-class='{lightsteelblue: $even}'>
       <td>{{$index + 1}}</td>
       <td ng-repeat="(key, value) in stock" ng-if="key !== 'Status'">{{value}}</td>
       
-      <td><button class="btn btn-danger btn-sm">
+      <td><button ng-click="removeStock(stock.Symbol)" class="btn btn-danger btn-sm">
         <span class="glyphicon glyphicon-trash"></span>              
       </button></td>
     </tr>

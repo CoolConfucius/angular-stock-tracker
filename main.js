@@ -13,6 +13,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
 app.controller('listCtrl', function($scope, $state, Stock) {
   $scope.stocks = Stock.list; 
+
+  $scope.removeStock = function(symbol) {
+    Stock.remove(symbol)
+  }
+
 });
 
 app.controller('addCtrl', function($scope, $http, Stock){
@@ -27,8 +32,7 @@ app.controller('addCtrl', function($scope, $http, Stock){
     $scope.lookResults = Stock.lookResults; 
   }
 
-  $scope.quickAdd = function(symbol) {
-    console.log("result", symbol);
+  $scope.quickAdd = function(symbol) {    
     Stock.addSymbol(symbol); 
   }
 
@@ -57,10 +61,12 @@ app.service('Stock', function($http){
     });
   }; 
 
-  // this.remove = function(stock) {
-  //   var index = this.list.indexOf(stock);
-  //   this.list.splice(index, 1);
-  // };
+  this.remove = function(symbol) {
+    var index = this.symbols.indexOf(symbol);
+    this.symbols.splice(index, 1);
+    this.list.splice(index, 1);
+    swal(symbol + " successfully removed!", "success")
+  };
 
   this.lookUp = function(input){
     if (this.lookResults.length !== 0) {
