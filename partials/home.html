@@ -1,1 +1,8 @@
 <h1>Home Sweet Home<h1>
+<hr>
+<div class="container" ng-if="symbols.length">
+<h3>Your tracked symbols:</h3>
+  <div class="row">
+    <div ng-repeat="symbol in symbols" class="col-xs-7 col-sm-4" ng-class='{lightsteelblue: $even}'>{{symbol}}</div>
+  </div>
+</div>

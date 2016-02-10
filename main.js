@@ -11,35 +11,22 @@ app.config(function($stateProvider, $urlRouterProvider, $localStorageProvider) {
   $urlRouterProvider.otherwise('/'); 
 });
 
-app.controller('homeCtrl', function($scope, $state, $localStorage, Stock) {
-  // $scope.$storage = $localStorage; 
-  // if (!$scope.$storage.stocks || !$scope.$storage.symbols) {
-  //   $scope.$storage = $localStorage.$default({
-  //     symbols: [],
-  //     stocks: []
-  //   });
-  // };
-
-  // Stock.symbols = $scope.$storage.symbols; 
-  // Stock.list = $scope.$storage.stocks; 
+app.controller('homeCtrl', function($scope, $state, Stock) {
+  $scope.symbols = Stock.symbols; 
 });
 
-app.controller('listCtrl', function($scope, $state, $localStorage, Stock) {
+app.controller('listCtrl', function($scope, $state, Stock) {
   $scope.stocks = Stock.list; 
   $scope.removeStock = function(symbol) {
     Stock.remove(symbol);
-    // $scope.$storage.symbols = Stock.symbols;
-    // $scope.$storage.stocks = Stock.list;
   }
 });
 
-app.controller('addCtrl', function($scope, $http, $localStorage, Stock){
+app.controller('addCtrl', function($scope, $http, Stock){
   $scope.addStock = function() {
     var cleanSymbol = $scope.newSymbol.toUpperCase().replace(/\W/, '')
     $scope.newSymbol = ''; 
     Stock.addSymbol(cleanSymbol); 
-    // $scope.$storage.symbols = Stock.symbols;
-    // $scope.$storage.stocks = Stock.list;
   }
 
   $scope.search = function() {
@@ -47,10 +34,8 @@ app.controller('addCtrl', function($scope, $http, $localStorage, Stock){
     $scope.lookResults = Stock.lookResults; 
   }
 
-  $scope.quickAdd = function(symbol, $localStorage) {    
+  $scope.quickAdd = function(symbol) {    
     Stock.addSymbol(symbol); 
-    // $scope.$storage.symbols = Stock.symbols;
-    // $scope.$storage.stocks = Stock.list;
   }
 
 });
@@ -63,8 +48,6 @@ app.service('Stock', function($http, $localStorage){
       stocks: []
     });
   };
-
-
 
   this.list = $localStorage.stocks; 
   this.symbols = $localStorage.symbols; 
@@ -116,7 +99,6 @@ app.service('Stock', function($http, $localStorage){
       console.log('error:', res);
     }); 
   }
-
 });
 
 
