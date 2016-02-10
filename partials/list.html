@@ -1,0 +1,22 @@
+<h3 ng-if="!stocks.length">No Stocks</h3>
+<table class="table" ng-if="stocks.length">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th ng-repeat="(key, value) in stocks[0]" ng-if="key !== 'Status'">{{key}}
+        <!-- <span class="glyphicon glyphicon-triangle-bottom"></span> -->
+      </th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(key, stock) in stocks track by $index" ng-class='{lightsteelblue: $even}'>
+      <td>{{$index + 1}}</td>
+      <td ng-repeat="(key, value) in stock" ng-if="key !== 'Status'">{{value}}</td>
+      
+      <td><button class="btn btn-danger btn-sm">
+        <span class="glyphicon glyphicon-trash"></span>              
+      </button></td>
+    </tr>
+  </tbody>
+</table>

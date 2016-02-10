@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Angular Stock Tracker</title>
+
+  <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/bower_components/sweetalert/dist/sweetalert.css">
+  <link rel="stylesheet" href="style.css">
+  <script src="/bower_components/angular/angular.min.js"></script>
+  <script src="/bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+  <script src="main.js"></script>
+</head>
+<body ng-app='routingTest'>
+  <div class="container">
+    <h1>Angular Stock Tracker</h1>
+    <button ui-sref="home" class="btn btn-primary">Home</button>
+    <button ui-sref="add" class="btn btn-primary">Add</button>
+    <button ui-sref="list" class="btn btn-primary">List</button>
+    <ui-view></ui-view>
+  </div>
+
+  <script src="/bower_components/sweetalert/dist/sweetalert.min.js"></script>
+</body>
+
+</html>

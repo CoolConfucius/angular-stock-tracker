@@ -1,0 +1,31 @@
+<h1>Enter Symbol</h1>
+<div class="form-group">
+  <label for="symbol">Enter the Symbol you want to add</label>
+  <input ng-model="newSymbol" type="text" class="form-control">
+</div>
+<button ng-click='addStock()' class="btn btn-success btn-sm">Add Stock</button>
+
+<hr>
+<h3>Look up here:</h3>
+<div class="form-group">
+  <label for="symbol">Look up a symbol</label>
+  <input ng-model="input" type="text" class="form-control">
+</div>
+<button ng-click='search()' class="btn btn-success btn-sm">Search</button>
+<table class="table" ng-if="lookResults.length">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th ng-repeat="(key, value) in lookResults[0]">{{key}}
+      </th>
+      <th>Add</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="(key, result) in lookResults" ng-class='{lightsteelblue: $even}'>
+      <td>{{$index + 1}}</td>
+      <td ng-repeat="(key, value) in result">{{value}}</td>
+      <td ng-click="quickAdd(result.Symbol)" class="btn btn-primary btn-lg">+</td>
+    </tr>
+  </tbody>
+</table>
