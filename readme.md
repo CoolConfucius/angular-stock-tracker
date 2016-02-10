@@ -8,7 +8,7 @@ When you have stocks, you can, see a sweet view of the stock symbols you're trac
 
 Data is stored in local storage. 
 
-### Deployed at: 
+### Deployed at: coolconfucius.github.io/angular-stock-tracker/
 
 If you're cloning down... 
 
