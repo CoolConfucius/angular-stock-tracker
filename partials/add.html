@@ -3,7 +3,7 @@
   <label for="symbol">Enter the Symbol you want to add</label>
   <input ng-model="newSymbol" type="text" class="form-control">
 </div>
-<button ng-click='addStock()' class="btn btn-success btn-sm">Add Stock</button>
+<button ng-click='addStock()' class="btn btn-success">Add Stock</button>
 
 <hr>
 <h3>Look up here:</h3>
@@ -11,7 +11,7 @@
   <label for="symbol">Look up a symbol</label>
   <input ng-model="input" type="text" class="form-control">
 </div>
-<button ng-click='search()' class="btn btn-success btn-sm">Search</button>
+<button ng-click='search()' class="btn btn-success">Search</button>
 <table class="table" ng-if="lookResults.length">
   <thead>
     <tr>

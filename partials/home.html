@@ -1,5 +1,6 @@
 <h1>Home Sweet Home<h1>
 <hr>
+<h3 ng-if="!symbols.length">You don't have tracked stocks at the moment. Hit Add to find some stocks to track. </h3>
 <div class="container" ng-if="symbols.length">
 <h3>Your tracked symbols:</h3>
   <div class="row">
